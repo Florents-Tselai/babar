@@ -1,7 +1,7 @@
 <p align="center">
-<!--   <p align="center">
+<p align="center">
    <img width="250" height="250" src="https://tselai.com/data/babar-1.png" alt="Logo">
-  </p> -->
+  </p>
   <h1 align="center">Babar🐘❤️🐍</h1>
   <p align="center">
   <strong>Turn any Python object into a Postgres extension</strong>
