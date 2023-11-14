@@ -13,6 +13,12 @@
     <a href="#roadmap"><strong> Roadmap </strong></a> 
 
    </p>
+<p align="center">
+   
+[![PyPI](https://img.shields.io/pypi/v/pybabar.svg)](https://pypi.org/project/pybabar/)
+[![Test](https://github.com/Florents-Tselai/babar/actions/workflows/test.yml/badge.svg)](https://github.com/Florents-Tselai/babar/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/Florents-Tselai/babar/branch/main/graph/badge.svg)](https://codecov.io/gh/florents-tselai/babar)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Florents-Tselai/babar/blob/main/LICENSE)
 
 ## Why
 
