@@ -18,7 +18,7 @@ def get_long_description():
 
 
 setup(
-    name="babar",
+    name="pybabar",
     description=SHORT_DESCRIPTION,
     long_description=get_long_description(),
     long_description_content_type="text/markdown",

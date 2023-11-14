@@ -35,7 +35,7 @@ along with the necessary extension files (`.control`, `Makefile`, `.sql`)
 ## Usage
 
 ```bash
-pip install babar
+pip install pybabar
 ```
 
 Let's create a Postgres extension called `pystring`
