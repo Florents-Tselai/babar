@@ -23,18 +23,6 @@ jobs:
           cache: pip
           cache-dependency-path: setup.py
 
-      - name: 'Install dependencies'
-        run: |
-          pip install -e '.[test]'
-
-      - name: 'Run tests'
-        run: |
-          pytest
-
-      - name: 'Run Black'
-        run: |
-          black --check .
-
       - name: 'Install PostgreSQL with PlPython'
         run: |
           sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg-snapshot main ${{ matrix.pgver }}" > /etc/apt/sources.list.d/pgdg.list'
@@ -51,6 +39,19 @@ jobs:
           export PGBIN=/usr/lib/postgresql/${{ matrix.pgver }}/bin
           sudo cp ./.github/workflows/pg_hba.conf $PGETC/pg_hba.conf
           sudo su postgres -c "$PGBIN/pg_ctl --pgdata $PGDATA start -o '-c config_file=$PGETC/postgresql.conf -p 5432'"
+
+      - name: 'Install dependencies'
+        run: |
+          pip install -e '.[test]'
+
+      - name: 'Run tests'
+        run: |
+          pytest
+
+      - name: 'Run Black'
+        run: |
+          black --check .
+
 
 #    - name: Run ruff
 #      run: |
