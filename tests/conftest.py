@@ -50,7 +50,7 @@ def create_extension(extname):
 
 @pytest.fixture
 def install_pystring():
-    run_cmd(["python", "pystring.py"])
+    run_cmd(["python", "-m", "babar.examples.pystring"])
     run_cmd(["make"])
     run_cmd(["make", "install"])
 
