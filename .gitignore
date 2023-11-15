@@ -11,3 +11,4 @@ venv
 build/
 /coverage.xml
 /.coverage
+/docs/_build/
