@@ -15,12 +15,12 @@ def test_raises_error_pg_keyword():
 
 
 @pytest.mark.parametrize(
-    "pytype,pgtype",
-    ((str, "text"), (int, "int")),
+    "pytype, exp_pgtype",
+    [(str, "text"), (int, "int"), (float, "float"), (bool, "boolean")],
 )
-def test_py_to_pg_conversion(pytype, pgtype):
+def test_py_to_pg_conversion(pytype, exp_pgtype):
     # TODO: this should probably be a factory. Need to figure out the proper class design
-    assert PgType(pytype).sql == pgtype
+    assert PgType(pytype).sql == exp_pgtype
 
 
 """ Coversion Python function Signature --> Postgres function signature"""

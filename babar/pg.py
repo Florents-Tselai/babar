@@ -35,7 +35,9 @@ class PgObject(ABC):
 
 @dataclass
 class PgType(PgObject):
-    types_lookup = dict([(int, "int"), (str, "text")])
+    types_lookup = dict(
+        [(str, "text"), (int, "int"), (float, "float"), (bool, "boolean")]
+    )
 
     pytype: object
 
