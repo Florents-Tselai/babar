@@ -1,10 +1,9 @@
 import pytest
 from pathlib import Path
 from babar import Extension, PgFunction
-from . import pystring
 import psycopg as pg
 from subprocess import run as run_cmd
-
+from babar.examples import pystring
 
 @pytest.fixture
 def user_path(tmpdir):
