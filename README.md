@@ -20,6 +20,7 @@
 <a href="https://github.com/Florents-Tselai/babar/actions/workflows/test.yml?branch=mainline"><img src="https://github.com/Florents-Tselai/babar/actions/workflows/test.yml/badge.svg"></a>
 <a href="https://codecov.io/gh/florents-tselai/babar"><img src="https://codecov.io/gh/Florents-Tselai/babar/branch/main/graph/badge.svg"></a>  
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
+<a href="https://github.com/Florents-Tselai/babar/releases"><img src="https://img.shields.io/github/v/release/Florents-Tselai/babar?include_prereleases&label=changelog"></a>
 
 ## Why
 
