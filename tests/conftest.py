@@ -1,7 +1,7 @@
 import pytest
 from pathlib import Path
 from babar import Extension, PgFunction
-from . import pystring
+from babar.examples import pystring
 
 
 @pytest.fixture
