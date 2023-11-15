@@ -45,6 +45,8 @@ setup(
         "setuptools",
         "pip",
     ],
-    extras_require={"test": ["pytest", "pytest-cov", "black", "ruff", "click"]},
+    extras_require={
+        "test": ["pytest", "pytest-cov", "black", "ruff", "click", "psycopg"]
+    },
     python_requires=">=3.7",
 )
