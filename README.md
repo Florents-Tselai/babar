@@ -1,6 +1,6 @@
 <p align="center">
 <p align="center">
-   <img width="250" height="250" src="https://tselai.com/data/babar-1.png" alt="Logo">
+   <img width="50%" height="40%" src="https://tselai.com/data/babar-1.png" alt="Logo">
   </p>
   <h1 align="center">Babar🐘❤️🐍</h1>
   <p align="center">
@@ -14,11 +14,12 @@
 
    </p>
 <p align="center">
-   
-[![PyPI](https://img.shields.io/pypi/v/pybabar.svg)](https://pypi.org/project/pybabar/)
-[![Test](https://github.com/Florents-Tselai/babar/actions/workflows/test.yml/badge.svg)](https://github.com/Florents-Tselai/babar/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/Florents-Tselai/babar/branch/main/graph/badge.svg)](https://codecov.io/gh/florents-tselai/babar)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Florents-Tselai/babar/blob/main/LICENSE)
+
+<p align="center">
+<a href="https://pypi.org/project/pybabar/"><img src="https://img.shields.io/pypi/v/pybabar?label=PyPI"></a>
+<a href="https://github.com/Florents-Tselai/babar/actions/workflows/test.yml?branch=mainline"><img src="https://github.com/Florents-Tselai/babar/actions/workflows/test.yml/badge.svg"></a>
+<a href="https://codecov.io/gh/florents-tselai/babar"><img src="https://codecov.io/gh/Florents-Tselai/babar/branch/main/graph/badge.svg"></a>  
+<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
 
 ## Why
 
