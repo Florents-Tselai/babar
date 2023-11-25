@@ -22,8 +22,8 @@ def pyisdigit(x: str) -> bool:
     return x.isdigit()
 
 
-def pyformat(x: str, *args, **kwargs) -> str:
-    return x.format(*args, **kwargs)
+# def pyformat(x: str, *args, **kwargs) -> str:
+#     return x.format(*args, **kwargs)
 
 
 def pyjoin(x: Iterable[str], sep: str = ",") -> str:
@@ -35,6 +35,11 @@ if __name__ == "__main__":
         "pystring",
         pyconcat,
         pyupper,
+        pystrlen,
+        pystrsplit,
+        pyisdigit,
+        # pyformat,
+        pyjoin,
         comment="this is the pystring extension",
         default_version="0.1.0",
     )
