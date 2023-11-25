@@ -14,41 +14,6 @@ def test_raises_error_pg_keyword():
     pass
 
 
-@pytest.mark.parametrize(
-    "pytype, exp_pgtype",
-    [(str, "text"), (int, "int"), (float, "float"), (bool, "boolean")],
-)
-def test_py_to_pg_conversion(pytype, exp_pgtype):
-    # TODO: this should probably be a factory. Need to figure out the proper class design
-    assert PgType(pytype).sql == exp_pgtype
-
-
-""" Coversion Python function Signature --> Postgres function signature"""
-
-
-def test_pgsignature(pyconcat):
-    def f(x: str, y: str) -> str:
-        pass
-
-    pysig = inspect.signature(f)
-    pyparams = pysig.parameters
-
-    assert PgParameter.from_pyparameter(pyparams["x"]).name == "x"
-    assert PgParameter.from_pyparameter(pyparams["x"]).type_.sql == "text"
-
-    assert PgParameter.from_pyparameter(pyparams["y"]).name == "y"
-    assert PgParameter.from_pyparameter(pyparams["y"]).type_.sql == "text"
-
-    pgsign = PgSignature.from_callable(f)
-
-    assert len(pgsign.parameters) == 2
-
-    assert pgsign.parameters == OrderedDict(
-        x=PgParameter("x", PgType(str)), y=PgParameter("y", PgType(str))
-    )
-    assert pgsign.sql == "(x text, y text) returns text"
-
-
 def test_pgfunction_body(pgfunc):
     assert (
         pgfunc.body

@@ -1,4 +1,4 @@
-from typing import Callable, Iterator, Union, Optional, List
+from typing import Any, Callable, Iterator, Union, Optional, List
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from types import FunctionType
@@ -9,6 +9,8 @@ from textwrap import wrap
 from .error import *
 from collections import OrderedDict
 from copy import copy
+from typing import *
+from types import *
 
 
 class PgObject(ABC):
@@ -35,11 +37,30 @@ class PgObject(ABC):
 
 @dataclass
 class PgType(PgObject):
+    """
+    The conversion from Py to Pg is currently naive and based on a simple lookup.
+    Good enough for now, but should be things like List[str], Sequence[str] should be cleaned up and handled in a smarter way
+    """
+
     types_lookup = dict(
-        [(str, "text"), (int, "int"), (float, "float"), (bool, "boolean")]
+        [
+            (str, "text"),
+            (int, "int"),
+            (float, "float"),
+            (bool, "boolean"),
+            (List[str], "text[]"),
+            (Iterable[str], "text[]"),
+            (Sequence[str], "text[]"),
+            (List[int], "int[]"),
+            (Iterable[int], "int[]"),
+            (Sequence[int], "int[]"),
+            (List[float], "float[]"),
+            (Iterable[float], "float[]"),
+            (Sequence[float], "float[]"),
+        ]
     )
 
-    pytype: object
+    pytype: Any
 
     @property
     def sql(self):
