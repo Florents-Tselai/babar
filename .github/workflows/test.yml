@@ -52,6 +52,11 @@ jobs:
           sudo cp ./.github/workflows/pg_hba.conf $PGETC/pg_hba.conf
           sudo su postgres -c "$PGBIN/pg_ctl --pgdata $PGDATA start -o '-c config_file=$PGETC/postgresql.conf -p 5432'"
 
+      - name: 'Build and install pystring extension'
+        run : |
+          chmod +x tests/test_pystring_extension.sh
+          ./tests/test_pystring_extension.sh
+
 #    - name: Run ruff
 #      run: |
 #        ruff .
