@@ -1,4 +1,5 @@
 from babar import Extension
+from typing import Iterable
 
 
 def pyconcat(x: str, y: str) -> str:
@@ -7,6 +8,26 @@ def pyconcat(x: str, y: str) -> str:
 
 def pyupper(x: str) -> str:
     return x.upper()
+
+
+def pystrlen(x: str) -> int:
+    return len(x)
+
+
+def pystrsplit(x: str, sep: str = ",", maxsplit: int = -1) -> list[str]:
+    return x.split(sep, maxsplit)
+
+
+def pyisdigit(x: str) -> bool:
+    return x.isdigit()
+
+
+def pyformat(x: str, *args, **kwargs) -> str:
+    return x.format(*args, **kwargs)
+
+
+def pyjoin(x: Iterable[str], sep: str = ",") -> str:
+    return sep.join(x)
 
 
 if __name__ == "__main__":
