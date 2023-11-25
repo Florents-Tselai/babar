@@ -26,7 +26,7 @@
 ## Status
 
 WARNING: This is a work in progress and is far from doing what it promises.
-But it will get there...
+But not that far... 😉
 
 ## Why
 
