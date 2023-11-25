@@ -55,7 +55,7 @@ jobs:
       - name: 'Build and install pystring extension'
         run : |
           chmod +x tests/test_pystring_extension.sh
-          ./tests/test_pystring_extension.sh
+          sudo ./tests/test_pystring_extension.sh
 
 #    - name: Run ruff
 #      run: |
