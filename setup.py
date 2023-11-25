@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-VERSION = "0.1.0a1"
+VERSION = "0.1.0a2"
 SHORT_DESCRIPTION = (
     "babar is a library "
     "for automatically generating Postgres extensions "
