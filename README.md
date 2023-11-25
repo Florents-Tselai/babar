@@ -52,8 +52,8 @@ along with the necessary extension files (`.control`, `Makefile`, `.sql`)
 pip install pybabar
 ```
 
-Let's create a Postgres extension called `pystring`
-which adds two simple Python functions.
+Let's create a Postgres extension called [`pystring`](babar/examples/pystring.py)
+which adds a few Python functions.
 
 ```python
 from babar import Extension
