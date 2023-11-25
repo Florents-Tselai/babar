@@ -1,5 +1,5 @@
 from babar import Extension
-from typing import Iterable
+from typing import *
 
 
 def pyconcat(x: str, y: str) -> str:
@@ -14,7 +14,7 @@ def pystrlen(x: str) -> int:
     return len(x)
 
 
-def pystrsplit(x: str, sep: str = ",", maxsplit: int = -1) -> list[str]:
+def pystrsplit(x: str, sep: str = ",", maxsplit: int = -1) -> List[str]:
     return x.split(sep, maxsplit)
 
 
