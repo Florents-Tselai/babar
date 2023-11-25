@@ -67,7 +67,7 @@ class PgType(PgObject):
         try:
             return self.types_lookup[self.pytype]
         except KeyError:
-            raise CannotConvertToPostgresException
+            raise CannotConvertToPostgresException(f"{self.pytype}")
 
 
 @dataclass
@@ -109,7 +109,7 @@ class PgSignature(PgObject):
 
     @property
     def ret_type(self):
-        return PgType(str)
+        return PgType(self.pysign.return_annotation)
 
     @property
     def sql(self) -> str:
@@ -126,6 +126,10 @@ class PgFunction(PgObject):
     """CREATE FUNCTION ..."""
 
     func: Callable  # not sure this is the correct hint
+
+    @property
+    def imports(self) -> str:
+        return "\n".join(["from typing import List, Iterable", ""])
 
     @property
     def body(self) -> str:
@@ -149,5 +153,6 @@ class PgFunction(PgObject):
         return f"""create function {self.name}{PgSignature.from_callable(self.func)}
 language plpython3u as
 $$
+{self.imports}
 {self.body}
 $$;"""
