@@ -11,3 +11,8 @@ venv
 build/
 /coverage.xml
 /.coverage
+/docs/_build/
+
+pystring.control
+Makefile
+pystring--*.sql

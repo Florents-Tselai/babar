@@ -1,4 +1,4 @@
-from typing import Callable, Iterator, Union, Optional, List
+from typing import Any, Callable, Iterator, Union, Optional, List
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from types import FunctionType
@@ -9,6 +9,8 @@ from textwrap import wrap
 from .error import *
 from collections import OrderedDict
 from copy import copy
+from typing import *
+from types import *
 
 
 class PgObject(ABC):
@@ -35,16 +37,37 @@ class PgObject(ABC):
 
 @dataclass
 class PgType(PgObject):
-    types_lookup = dict([(int, "int"), (str, "text")])
+    """
+    The conversion from Py to Pg is currently naive and based on a simple lookup.
+    Good enough for now, but should be things like List[str], Sequence[str] should be cleaned up and handled in a smarter way
+    """
 
-    pytype: object
+    types_lookup = dict(
+        [
+            (str, "text"),
+            (int, "int"),
+            (float, "float"),
+            (bool, "boolean"),
+            (List[str], "text[]"),
+            (Iterable[str], "text[]"),
+            (Sequence[str], "text[]"),
+            (List[int], "int[]"),
+            (Iterable[int], "int[]"),
+            (Sequence[int], "int[]"),
+            (List[float], "float[]"),
+            (Iterable[float], "float[]"),
+            (Sequence[float], "float[]"),
+        ]
+    )
+
+    pytype: Any
 
     @property
     def sql(self):
         try:
             return self.types_lookup[self.pytype]
         except KeyError:
-            raise CannotConvertToPostgresException
+            raise CannotConvertToPostgresException(f"{self.pytype}")
 
 
 @dataclass
@@ -86,7 +109,7 @@ class PgSignature(PgObject):
 
     @property
     def ret_type(self):
-        return PgType(str)
+        return PgType(self.pysign.return_annotation)
 
     @property
     def sql(self) -> str:
@@ -103,6 +126,10 @@ class PgFunction(PgObject):
     """CREATE FUNCTION ..."""
 
     func: Callable  # not sure this is the correct hint
+
+    @property
+    def imports(self) -> str:
+        return "\n".join(["from typing import List, Iterable", ""])
 
     @property
     def body(self) -> str:
@@ -126,5 +153,6 @@ class PgFunction(PgObject):
         return f"""create function {self.name}{PgSignature.from_callable(self.func)}
 language plpython3u as
 $$
+{self.imports}
 {self.body}
 $$;"""

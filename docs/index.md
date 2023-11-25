@@ -1,3 +1,5 @@
+# babar
+
 <p align="center">
 <p align="center">
    <img width="50%" height="40%" src="https://tselai.com/data/babar-1.png" alt="Logo">
@@ -6,7 +8,6 @@
   <p align="center">
   <strong>Turn any Python object into a Postgres extension</strong>
     <br> <br />
-    <a href="#status"><strong> Status</strong></a> |
     <a href="#why"><strong> Why</strong></a> |
     <a href="#how"><strong> How </strong></a> |
     <a href="#installation"><strong> Installation </strong></a> |
@@ -21,12 +22,6 @@
 <a href="https://github.com/Florents-Tselai/babar/actions/workflows/test.yml?branch=mainline"><img src="https://github.com/Florents-Tselai/babar/actions/workflows/test.yml/badge.svg"></a>
 <a href="https://codecov.io/gh/florents-tselai/babar"><img src="https://codecov.io/gh/Florents-Tselai/babar/branch/main/graph/badge.svg"></a>  
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
-<a href="https://github.com/Florents-Tselai/babar/releases"><img src="https://img.shields.io/github/v/release/Florents-Tselai/babar?include_prereleases&label=changelog"></a>
-
-## Status
-
-WARNING: This is a work in progress and is far from doing what it promises.
-But not that far... 😉
 
 ## Why
 
@@ -52,8 +47,8 @@ along with the necessary extension files (`.control`, `Makefile`, `.sql`)
 pip install pybabar
 ```
 
-Let's create a Postgres extension called [`pystring`](babar/examples/pystring.py)
-which adds a few Python functions.
+Let's create a Postgres extension called `pystring`
+which adds two simple Python functions.
 
 ```python
 from babar import Extension
@@ -115,5 +110,14 @@ SQL
 
 ---
 
-It is lightly inspired by [Python-Fire](https://github.com/google/python-fire) 
+It is lightly inspired by [Python-Fire](https://github.com/google/python-fire)
 which turns any Python object into a cli interface
+
+## Contents
+
+```{toctree}
+---
+maxdepth: 3
+---
+setup
+```
