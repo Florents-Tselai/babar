@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = sqlite-utils
+SPHINXPROJ    = babar
 SOURCEDIR     = .
 BUILDDIR      = _build
 

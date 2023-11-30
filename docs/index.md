@@ -119,5 +119,8 @@ which turns any Python object into a cli interface
 ---
 maxdepth: 3
 ---
-setup
+usage
+philosophy
+cli
+reference
 ```

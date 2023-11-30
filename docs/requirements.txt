@@ -4,3 +4,4 @@ sphinx-autobuild
 sphinx-copybutton
 myst-parser
 cogapp
+beanbag-docutils>=2.0

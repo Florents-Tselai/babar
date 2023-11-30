@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from subprocess import PIPE, Popen
+from beanbag_docutils.sphinx.ext.github import github_linkcode_resolve
 
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -30,8 +31,27 @@ from subprocess import PIPE, Popen
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["myst_parser", "sphinx_copybutton"]
+extensions = [
+    "myst_parser",
+    "sphinx_copybutton",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.extlinks",
+    "sphinx_copybutton",
+    "sphinx.ext.linkcode",
+]
 myst_enable_extensions = ["colon_fence"]
+
+
+def linkcode_resolve(domain, info):
+    return github_linkcode_resolve(
+        domain=domain,
+        info=info,
+        allowed_module_names=["babar"],
+        github_org_id="Florents-Tselai",
+        github_repo_id="babar",
+        branch="main",
+    )
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -83,7 +103,6 @@ pygments_style = "sphinx"
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
-
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -96,19 +115,17 @@ html_theme = "furo"
 # documentation.
 
 html_theme_options = {}
-html_title = "babar"
+html_title = "babar 🐘❤️🐍"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = "babar-doc"
-
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -140,7 +157,6 @@ latex_documents = [
     )
 ]
 
-
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
@@ -154,7 +170,6 @@ man_pages = [
         1,
     )
 ]
-
 
 # -- Options for Texinfo output -------------------------------------------
 
