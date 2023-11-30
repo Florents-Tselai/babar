@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install -e '.[test]'
 
-      - name: 'Run tests'
+      - name: 'Run Python tests'
         run: |
           pytest
 
@@ -54,5 +54,4 @@ jobs:
 
       - name: 'Create test database and user'
         run: |
-          createuser $USER
-          createdb -O $USER $USER
+          sudo su postgres psql -c "CREATE USER runner; CREATE DATABASE runner OWNER 'runner'"
