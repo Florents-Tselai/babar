@@ -49,7 +49,6 @@ jobs:
           export PGDATA=/var/lib/postgresql/${{ matrix.pgver }}/main
           export PGETC=/etc/postgresql/${{ matrix.pgver }}/main
           export PGBIN=/usr/lib/postgresql/${{ matrix.pgver }}/bin
-          # sudo cp ./.github/workflows/pg_hba.conf $PGETC/pg_hba.conf
           sudo su postgres -c "$PGBIN/pg_ctl --pgdata $PGDATA start -o '-c config_file=$PGETC/postgresql.conf -p 5432'"
           
 
@@ -57,4 +56,4 @@ jobs:
         run: |
           python3 babar/examples/pystring.py
           export PGDATABASE=postgres
-          sudo su postgres -c "make PG_CONFIG=/usr/lib/postgresql/${{ matrix.pgver }}/bin/pg_config install"
+          sudo make PG_CONFIG=/usr/lib/postgresql/${{ matrix.pgver }}/bin/pg_config install
