@@ -51,3 +51,8 @@ jobs:
           export PGBIN=/usr/lib/postgresql/${{ matrix.pgver }}/bin
           # sudo cp ./.github/workflows/pg_hba.conf $PGETC/pg_hba.conf
           sudo su postgres -c "$PGBIN/pg_ctl --pgdata $PGDATA start -o '-c config_file=$PGETC/postgresql.conf -p 5432'"
+
+      - name: 'Create test database and user'
+        run: |
+          createuser $USER
+          createdb -O $USER $USER
