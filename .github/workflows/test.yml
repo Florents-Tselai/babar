@@ -57,4 +57,4 @@ jobs:
         run: |
           python3 babar/examples/pystring.py
           export PGDATABASE=postgres
-          make PG_CONFIG=/usr/lib/postgresql/${{ matrix.pgver }}/bin/pg_config install
+          sudo su postgres -c "make PG_CONFIG=/usr/lib/postgresql/${{ matrix.pgver }}/bin/pg_config install"
