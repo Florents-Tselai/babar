@@ -8,7 +8,3 @@ def test_cli_help():
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
     assert result.output.startswith("Usage:")
-
-
-def test_files_created():
-    pass
