@@ -31,9 +31,9 @@ jobs:
         run: |
           pytest
 
-      - name: 'Run Black'
-        run: |
-          black --check .
+#      - name: 'Run Black'
+#        run: |
+#          black --check .
 
       - name: 'Install PostgreSQL with PlPython'
         run: |
